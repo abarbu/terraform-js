@@ -43,8 +43,10 @@ class Terragrunt extends Base {
     const output = <TerraformMultipleOutput>JSON.parse(stdout)
     if (options.simple) {
       const keys = Object.keys(output)
-      keys.forEach((key) => {
+        keys.forEach((key) => {
+            // @ts-ignore
         delete output[key].sensitive
+            // @ts-ignore
         delete output[key].type
       })
     }
